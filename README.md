@@ -1,8 +1,9 @@
 ZFSlider
 ========
+-------------------------------
 
 UISlider with popup
 
-sample screenshot
+###Initial Version#
 
 ![Alt text](ZFSlider-Screenshot.png)
