@@ -43,9 +43,10 @@
 }
 
 -(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+    BOOL flag = [super continueTrackingWithTouch:touch withEvent:event];
     [self showSliderPopup];
     [self setSliderPopupPositionFromValue:self.value];
-    return [super continueTrackingWithTouch:touch withEvent:event];;
+    return flag;
 }
 
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
@@ -67,6 +68,11 @@
 
 -(void)showSliderPopup{
     _sliderPopup.alpha = 1;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    [self setSliderPopupPositionFromValue:self.value];
 }
 
 @end
@@ -133,8 +139,6 @@
     roundedRectanglePath.lineWidth = 0.5;
     [roundedRectanglePath stroke];
     
-    
-    //// Cleanup
     CGGradientRelease(gradient);
     CGColorSpaceRelease(colorSpace);
     
